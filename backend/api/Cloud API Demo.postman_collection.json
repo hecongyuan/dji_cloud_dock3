@@ -1,0 +1,2276 @@
+{
+	"info": {
+		"_postman_id": "17774906-1c99-4cd1-9ebd-c28a3c98d440",
+		"name": "Cloud API Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manage",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"adminPC\",\r\n    \"password\": \"adminPC\",\r\n    \"flag\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/manage/api/v1/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"manage",
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/token/refresh",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"token",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Workspaces Infomation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/current",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users Infomation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/users/current",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device Topo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/{{workspace_id}}/devices",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"{{workspace_id}}",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Livestream Capacity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/live/capacity",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"live",
+								"capacity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Livestream",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"rtmp://192.168.1.1/live/1651053434895\",\r\n    \"url_type\": 1,\r\n    \"video_id\": \"1581F5B0159/53-0-0/normal-0\",\r\n    \"video_quality\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/live/streams/start",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"live",
+								"streams",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop Livestream",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"video_id\": \"1581F4BNDQ/39-0-7/normal-0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/live/streams/stop",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"live",
+								"streams",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Quality",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"video_id\": \"\",\r\n    \"video_quality\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/live/streams/update",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"live",
+								"streams",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Switch Lens",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"video_id\": \"1581F5BMD228Q00A82XX/39-0-7/zoom-0\",\r\n    \"video_type\": \"zoom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/live/streams/switch",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"live",
+								"streams",
+								"switch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/users/{{workspace_id}}/users?page=1&page_size=10",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"users",
+								"{{workspace_id}}",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Info",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mqtt_username\": \"admin\",\r\n    \"mqtt_password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/users/{{workspace_id}}/users/a1559e7c-8dd8-4780-b952-100cc4797da2",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"users",
+								"{{workspace_id}}",
+								"users",
+								"a1559e7c-8dd8-4780-b952-100cc4797da2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bind Device",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"be7c6c3d-afe9-4be4-b9eb-c55066c0914e\",\r\n    \"workspace_id\": \"e3dea0f5-37f2-4d79-ae58-490af3228069\",\r\n    \"device_sn\": \"1ZMDG009\",\r\n    \"child_device_sn\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/binding",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"binding"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Binding Devices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/{{workspace_id}}/devices/bound?page=1&page_size=10&domain=sub-device",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"{{workspace_id}}",
+								"devices",
+								"bound"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								},
+								{
+									"key": "domain",
+									"value": "sub-device"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/{{workspace_id}}/devices/{{device_sn}}",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"{{workspace_id}}",
+								"devices",
+								"{{device_sn}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unbind Device",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/{{device_sn}}/unbinding",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"{{device_sn}}",
+								"unbinding"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Firmware Upgrad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"sn\": \"1581F5B9\",\r\n        \"device_name\": \"Matrice 30\",\r\n        \"product_version\": \"04.01.0020\",\r\n        \"firmware_upgrade_type\": 3\r\n    }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/{{workspace_id}}/devices/ota",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"{{workspace_id}}",
+								"devices",
+								"ota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Latest Release Note",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/firmware-release-notes/latest?device_name=DJI Dock",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"firmware-release-notes",
+								"latest"
+							],
+							"query": [
+								{
+									"key": "device_name",
+									"value": "DJI Dock"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get HMS Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/{{workspace_id}}/devices/hms?device_sn=&language=en&page=1&page_size=2",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"{{workspace_id}}",
+								"devices",
+								"hms"
+							],
+							"query": [
+								{
+									"key": "device_sn",
+									"value": "",
+									"description": "Type: List"
+								},
+								{
+									"key": "begin_time",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "end_time",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "language",
+									"value": "en",
+									"description": "zh or en"
+								},
+								{
+									"key": "message",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "2"
+								},
+								{
+									"key": "level",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "update_time",
+									"value": null,
+									"description": "Type: Long",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Unread HMS",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/{{workspace_id}}/devices/hms/{{device_sn}}",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"{{workspace_id}}",
+								"devices",
+								"hms",
+								"{{device_sn}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Unread Hms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/{{workspace_id}}/devices/hms/{{device_sn}}",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"{{workspace_id}}",
+								"devices",
+								"hms",
+								"{{device_sn}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Uploaded Logs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/{{workspace_id}}/devices/{{device_sn}}/logs-uploaded?page=1&page_size=12&begin_time=123123&end_time=123123",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"devices",
+								"{{device_sn}}",
+								"logs-uploaded"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "12"
+								},
+								{
+									"key": "status",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "begin_time",
+									"value": "123123"
+								},
+								{
+									"key": "end_time",
+									"value": "123123"
+								},
+								{
+									"key": "logs_information",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Real Time Logs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/{{workspace_id}}/devices/{{device_sn}}/logs?domain_list=0,3",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"devices",
+								"{{device_sn}}",
+								"logs"
+							],
+							"query": [
+								{
+									"key": "domain_list",
+									"value": "0,3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Logs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"logs_information\":\"\",\r\n    \"happen_time\":1659326597,\r\n    \"files\":[\r\n        {\r\n            \"list\":[\r\n                {\r\n                    \"boot_index\":1053,\r\n                    \"end_time\":1662070409,\r\n                    \"size\":1083590875,\r\n                    \"start_time\":1662066809\r\n                }\r\n            ],\r\n            \"device_sn\":\"4TADK1D\",\r\n            \"module\":\"3\"\r\n        },\r\n        {\r\n            \"list\":[\r\n                {\r\n                    \"boot_index\":222,\r\n                    \"end_time\":1661833032,\r\n                    \"size\":1782411613,\r\n                    \"start_time\":1661830103\r\n                }\r\n            ],\r\n            \"device_sn\":\"1581259\",\r\n            \"module\":\"0\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/{{workspace_id}}/devices/{{device_sn}}/logs",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"devices",
+								"{{device_sn}}",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel File Upload",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"cancel\",\r\n    \"module_list\":[\r\n        \"0\",\r\n        \"3\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/{{workspace_id}}/devices/{{device_sn}}/logs",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"devices",
+								"{{device_sn}}",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Upload History",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/{{workspace_id}}/devices/{{device_sn}}/logs/{{logs_id}}",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"devices",
+								"{{device_sn}}",
+								"logs",
+								"{{logs_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Property",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"night_lights_state\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/devices/{{workspace_id}}/devices/{{device_sn}}/property",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"devices",
+								"{{workspace_id}}",
+								"devices",
+								"{{device_sn}}",
+								"property"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Firmwares",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/{{workspace_id}}/firmwares?page=1&page_size=50",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"firmwares"
+							],
+							"query": [
+								{
+									"key": "device_name",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "product_version",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Firmware File",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "release_note",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "device_name",
+									"value": "DJI Dock",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/{{workspace_id}}/firmwares/file/upload",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"firmwares",
+								"file",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Firmware Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/{{workspace_id}}/firmwares/{{firmware_id}}",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"firmwares",
+								"{{firmware_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ3b3Jrc3BhY2VfaWQiOiJlM2RlYTBmNS0zN2YyLTRkNzktYWU1OC00OTBhZjMyMjgwNjkiLCJzdWIiOiJDbG91ZEFwaVNhbXBsZSIsInVzZXJfdHlwZSI6IjEiLCJuYmYiOjE2ODIyMzI5MDYsImxvZyI6IkxvZ2dlcltjb20uZGppLnNhbXBsZS5jb21tb24ubW9kZWwuQ3VzdG9tQ2xhaW1dIiwiaXNzIjoiREpJIiwiaWQiOiJhMTU1OWU3Yy04ZGQ4LTQ3ODAtYjk1Mi0xMDBjYzQ3OTdkYTIiLCJleHAiOjE3Njg2MzI5MDYsImlhdCI6MTY4MjIzMjkwNiwidXNlcm5hbWUiOiJhZG1pblBDIn0.ilO-3PcvWAX9r8z3AR4VAw3kVhavYjiTx_187ACBc1M",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Layer",
+			"item": [
+				{
+					"name": "Get Elements Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/element-groups?is_distributed=true",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"element-groups"
+							],
+							"query": [
+								{
+									"key": "is_distributed",
+									"value": "true"
+								},
+								{
+									"key": "group_id",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Elements",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"94c51c50-f111-45e8-ac8c-4f96c93ced44\",\r\n\t\"name\": \"line1\",\r\n\t\"resource\": {\r\n\t\t\"type\": 1,\r\n\t\t\"user_name\": \"admin\",\r\n\t\t\"content\": {\r\n\t\t\t\"type\": \"Feature\",\r\n\t\t\t\"properties\": {\r\n\t\t\t\t\"color\": \"#0091FF\",\r\n\t\t\t\t\"clampToGround\": false\r\n\t\t\t},\r\n\t\t\t\"geometry\": {\r\n\t\t\t\t\"type\": \"LineString\",\r\n\t\t\t\t\"coordinates\": [\r\n\t\t\t\t\t[\r\n\t\t\t\t\t\t113.93604571028328,\r\n\t\t\t\t\t\t22.525017284431613\r\n\t\t\t\t\t],\r\n\t\t\t\t\t[\r\n\t\t\t\t\t\t113.93525938281492,\r\n\t\t\t\t\t\t22.524562752152626\r\n\t\t\t\t\t],\r\n\t\t\t\t\t[\r\n\t\t\t\t\t\t113.93566532369493,\r\n\t\t\t\t\t\t22.524039300311106\r\n\t\t\t\t\t],\r\n\t\t\t\t\t[\r\n\t\t\t\t\t\t113.93636862690045,\r\n\t\t\t\t\t\t22.52381139709072\r\n\t\t\t\t\t],\r\n\t\t\t\t\t[\r\n\t\t\t\t\t\t113.93646234539993,\r\n\t\t\t\t\t\t22.524630068659047\r\n\t\t\t\t\t]\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/element-groups/{{element_group_id}}/elements",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"element-groups",
+								"{{element_group_id}}",
+								"elements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Elements",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"line2\",\r\n\t\"content\": {\r\n        \"type\": \"Feature\",\r\n        \"properties\": {\r\n            \"color\": \"#0091FF\",\r\n            \"clampToGround\": false\r\n        },\r\n        \"geometry\": {\r\n            \"type\": \"LineString\",\r\n            \"coordinates\": [\r\n                [\r\n                    113.93604571028328,\r\n                    22.525017284431613\r\n                ],\r\n                [\r\n                    113.93525938281492,\r\n                    22.524562752152626\r\n                ],\r\n                [\r\n                    113.93566532369493,\r\n                    22.524039300311106\r\n                ],\r\n                [\r\n                    113.93636862690045,\r\n                    22.52381139709072\r\n                ],\r\n                [\r\n                    113.93646234539993,\r\n                    22.524630068659047\r\n                ]\r\n            ]\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/elements/94c51c50-f111-45e8-ac8c-4f96c93ced44",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"elements",
+								"94c51c50-f111-45e8-ac8c-4f96c93ced44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Elements",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/elements/94c51c50-f111-45e8-ac8c-4f96c93ced44",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"elements",
+								"94c51c50-f111-45e8-ac8c-4f96c93ced44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Group Elements",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/element-groups/{{element_group_id}}/elements",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"element-groups",
+								"{{element_group_id}}",
+								"elements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Flight Areas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/flight-areas",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"flight-areas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Flight Area",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"123\",\r\n    \"type\": \"dfence\",\r\n    \"content\": {\r\n        \"properties\": {\r\n            \"clampToGround\": true,\r\n            \"color\": \"#FF0000\"\r\n        },\r\n        \"geometry\": {\r\n            \"type\": \"Circle\",\r\n            \"coordinates\": [\r\n                25.41512807678825,\r\n                4.642350757553345\r\n            ],\r\n            \"radius\": 12.2\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/flight-area",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"flight-area"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Flight Area",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"123\",\r\n    \"status\": false,\r\n    \"content\": {\r\n        \"properties\": {\r\n            \"clampToGround\": true,\r\n            \"color\": \"#FF0000\"\r\n        },\r\n        \"geometry\": {\r\n            \"type\": \"Circle\",\r\n            \"coordinates\": [\r\n                25.41512807678825,\r\n                4.642350757553345\r\n            ],\r\n            \"radius\": 12.2\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/flight-area/{{area_id}}",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"flight-area",
+								"{{area_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Flight Area",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/flight-area/{{area_id}}",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"flight-area",
+								"{{area_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sync Device Flight Area",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"device_sn\": [\"123\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/flight-area/sync",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"flight-area",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device Flight Area Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{map_version}}/workspaces/{{workspace_id}}/device-status",
+							"host": [
+								"{{base_url}}{{map_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"device-status"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ3b3Jrc3BhY2VfaWQiOiJlM2RlYTBmNS0zN2YyLTRkNzktYWU1OC00OTBhZjMyMjgwNjkiLCJzdWIiOiJDbG91ZEFwaVNhbXBsZSIsInVzZXJfdHlwZSI6IjEiLCJuYmYiOjE2NTMzNzI3NDUsImxvZyI6IkxvZ2dlcltjb20uZGppLnNhbXBsZS5jb21tb24ubW9kZWwuQ3VzdG9tQ2xhaW1dIiwiaXNzIjoiREpJIiwiaWQiOiJhMTU1OWU3Yy04ZGQ4LTQ3ODAtYjk1Mi0xMDBjYzQ3OTdkYTIiLCJleHAiOjE2NTM0NTkxNDUsImlhdCI6MTY1MzM3Mjc0NSwidXNlcm5hbWUiOiJhZG1pblBDIn0.Zyb_f4umcGY2-WDaQKA1LHGOs9qYfJuPc3rQeIS-4hY",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Media",
+			"item": [
+				{
+					"name": "Fast Upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ext\": {\r\n\t\t\"drone_model_key\": \"0-60-0\",\r\n\t\t\"is_original\": true,\r\n\t\t\"payload_model_key\": \"1-42-0\",\r\n\t\t\"tinny_fingerprint\": \"045040860fb014916c81082407e9ff8b_2021_12_2_16_17_8\"\r\n\t},\r\n\t\"fingerprint\": \"91F613D796709163A519D8E5C872823D\",\r\n\t\"name\": \"DJI_20211202161708_0001_Z.jpg\",\r\n\t\"path\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{media_version}}/workspaces/{{workspace_id}}/fast-upload",
+							"host": [
+								"{{base_url}}{{media_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"fast-upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get STS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{storage_version}}/workspaces/{{workspace_id}}/sts",
+							"host": [
+								"{{base_url}}{{storage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"sts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File Callback",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ext\": {\r\n\t\t\"drone_model_key\": \"0-60-0\",\r\n\t\t\"is_original\": true,\r\n\t\t\"payload_model_key\": \"1-42-0\",\r\n\t\t\"tinny_fingerprint\": \"045040860fb014916c81082407e9ff8b_2021_12_2_16_17_8\"\r\n\t},\r\n\t\"fingerprint\": \"91F613D796709163A519D8E5C872823D\",\r\n\t\"object_key\": \"5asjwu24-2a18-4b4b-86f9-3a678da0bf4d/org_fb3ab61eb1c9fd26_1638433028000.jpg\",\r\n\t\"metadata\": {\r\n\t\t\"absolute_altitude\": -36.889,\r\n\t\t\"created_time\": \"2021-12-02T16:17:07+08:00\",\r\n\t\t\"gimbal_yaw_degree\": -4.3,\r\n\t\t\"photoed_position\": {\r\n\t\t\t\"lat\": 0,\r\n\t\t\t\"lng\": 0\r\n\t\t},\r\n\t\t\"relative_altitude\": 0,\r\n\t\t\"shoot_position\": {\r\n\t\t\t\"lat\": 0,\r\n\t\t\t\"lng\": 0\r\n\t\t}\r\n\t},\r\n\t\"name\": \"DJI_20211202161708_0001_Z.jpg\",\r\n\t\"path\": \"\",\r\n\t\"sub_file_type\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{media_version}}/workspaces/{{workspace_id}}/upload-callback",
+							"host": [
+								"{{base_url}}{{media_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"upload-callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{media_version}}/files/{{workspace_id}}/files",
+							"host": [
+								"{{base_url}}{{media_version}}"
+							],
+							"path": [
+								"files",
+								"{{workspace_id}}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Tiny Fingerprints",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tiny_fingerprints\":[\r\n        \"4a3a67101ffb81d079338d4729315a8c_2022_3_3_11_38_58\",\r\n        \"8e0fedb981be23dd034cf7927919da51_2022_3_3_11_45_26\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{media_version}}/workspaces/{{workspace_id}}/files/tiny-fingerprints",
+							"host": [
+								"{{base_url}}{{media_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"files",
+								"tiny-fingerprints"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ3b3Jrc3BhY2VfaWQiOiJlM2RlYTBmNS0zN2YyLTRkNzktYWU1OC00OTBhZjMyMjgwNjkiLCJzdWIiOiJDbG91ZEFwaVNhbXBsZSIsInVzZXJfdHlwZSI6IjEiLCJuYmYiOjE2NjI2OTYwNjMsImxvZyI6IkxvZ2dlcltjb20uZGppLnNhbXBsZS5jb21tb24ubW9kZWwuQ3VzdG9tQ2xhaW1dIiwiaXNzIjoiREpJIiwiaWQiOiJhMTU1OWU3Yy04ZGQ4LTQ3ODAtYjk1Mi0xMDBjYzQ3OTdkYTIiLCJleHAiOjE2NjI3ODI0NjMsImlhdCI6MTY2MjY5NjA2MywidXNlcm5hbWUiOiJhZG1pblBDIn0.9XEd-Zspb_a-2WhtcHxbQ4GdHbBj9wfmUbHBkZgSS0c",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "TSA",
+			"item": [
+				{
+					"name": "Get Topologies for Pilot",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{manage_version}}/workspaces/{{workspace_id}}/devices/topologies",
+							"host": [
+								"{{base_url}}{{manage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"devices",
+								"topologies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ3b3Jrc3BhY2VfaWQiOiJlM2RlYTBmNS0zN2YyLTRkNzktYWU1OC00OTBhZjMyMjgwNjkiLCJzdWIiOiJDbG91ZEFwaVNhbXBsZSIsInVzZXJfdHlwZSI6IjEiLCJuYmYiOjE2NTg3MTgxNTMsImxvZyI6IkxvZ2dlcltjb20uZGppLnNhbXBsZS5jb21tb24ubW9kZWwuQ3VzdG9tQ2xhaW1dIiwiaXNzIjoiREpJIiwiaWQiOiJhMTU1OWU3Yy04ZGQ4LTQ3ODAtYjk1Mi0xMDBjYzQ3OTdkYTIiLCJleHAiOjE2NTg4MDQ1NTMsImlhdCI6MTY1ODcxODE1MywidXNlcm5hbWUiOiJhZG1pblBDIn0._Xw3rnnDhs32JW9pD_FBtRWDuwLZgX_ys3GNmZxuHsk",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Wayline",
+			"item": [
+				{
+					"name": "Get Waylines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/waylines?page=1&page_size=10&order_by=update_time desc&favorited=false",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"waylines"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								},
+								{
+									"key": "order_by",
+									"value": "update_time desc"
+								},
+								{
+									"key": "template_type",
+									"value": "0,1",
+									"disabled": true
+								},
+								{
+									"key": "favorited",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Object URL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/waylines/4eca0e91-9844-41a1-8e41-3a16d82bcd21/url",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"waylines",
+								"4eca0e91-9844-41a1-8e41-3a16d82bcd21",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Wayline FIle Callback",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"object_key\":\"5a6f9d4b-2a38-4b4b-86f9-3a678da0bf4a/68337bf3-8d12-4acd-afbb-ced016812454/d57fa426-be54-418c-b3fe-d92082108dc2/wayline1.kmz\",\r\n    \"name\":\"wayline1\",\r\n    \"metadata\": {\r\n            \"drone_model_key\":\"0-67-0\",\r\n            \"payload_model_keys\":[\r\n                \"1-53-0\"\r\n            ],\r\n            \"template_types\":[\r\n                0\r\n            ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/upload-callback",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"upload-callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Favorite",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/favorites?id=uuid,uuid1",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"favorites"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "uuid,uuid1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Favorite Wayline",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/favorites?id=uuid,uuid1",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"favorites"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "uuid,uuid1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get STS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{storage_version}}/workspaces/{{workspace_id}}/sts",
+							"host": [
+								"{{base_url}}{{storage_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"sts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Duplicate Names",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/waylines/duplicate-names?name=wayline1",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"waylines",
+								"duplicate-names"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "wayline1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import KMZ File",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/waylines/file/upload",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"waylines",
+								"file",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ3b3Jrc3BhY2VfaWQiOiJlM2RlYTBmNS0zN2YyLTRkNzktYWU1OC00OTBhZjMyMjgwNjkiLCJzdWIiOiJDbG91ZEFwaVNhbXBsZSIsInVzZXJfdHlwZSI6IjEiLCJuYmYiOjE2ODAyNjAxNTYsImxvZyI6IkxvZ2dlcltjb20uZGppLnNhbXBsZS5jb21tb24ubW9kZWwuQ3VzdG9tQ2xhaW1dIiwiaXNzIjoiREpJIiwiaWQiOiJhMTU1OWU3Yy04ZGQ4LTQ3ODAtYjk1Mi0xMDBjYzQ3OTdkYTIiLCJleHAiOjE3NjY2NjAxNTYsImlhdCI6MTY4MDI2MDE1NiwidXNlcm5hbWUiOiJhZG1pblBDIn0._QhvfhBxxfQN7xpFqZma1rCYbBtouo2pErtm8737L_8",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "job",
+			"item": [
+				{
+					"name": "Create Flight Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"file_id\": \"\",\r\n    \"dock_sn\": \"\",\r\n    \"wayline_type\": 0,\r\n    \"task_type\": 0,\r\n    \"task_days\": [1676029468],\r\n    \"task_periods\": [[1676029468]],\r\n    \"rth_altitude\": 20,\r\n    \"out_of_control_action\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/flight-tasks",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"flight-tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/jobs?page=1&pageSize=10",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel the jobs",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/jobs",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "job_id",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "job_id",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Media Highest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/jobs/{{job_id}}/media-highest",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"jobs",
+								"{{job_id}}",
+								"media-highest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pause Job",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/jobs/{{job_id}}",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"jobs",
+								"{{job_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resume Job",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{wayline_version}}/workspaces/{{workspace_id}}/jobs/{{job_id}}",
+							"host": [
+								"{{base_url}}{{wayline_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"jobs",
+								"{{job_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ3b3Jrc3BhY2VfaWQiOiJlM2RlYTBmNS0zN2YyLTRkNzktYWU1OC00OTBhZjMyMjgwNjkiLCJzdWIiOiJDbG91ZEFwaVNhbXBsZSIsInVzZXJfdHlwZSI6IjEiLCJuYmYiOjE2Nzg4NjM0NzMsImxvZyI6IkxvZ2dlcltjb20uZGppLnNhbXBsZS5jb21tb24ubW9kZWwuQ3VzdG9tQ2xhaW1dIiwiaXNzIjoiREpJIiwiaWQiOiJhMTU1OWU3Yy04ZGQ4LTQ3ODAtYjk1Mi0xMDBjYzQ3OTdkYTIiLCJleHAiOjE3NjUyNjM0NzMsImlhdCI6MTY3ODg2MzQ3MywidXNlcm5hbWUiOiJhZG1pblBDIn0.r3ODgJtAHxrBCzDnCwTDCdUq8hLyfIUiDYzasYAIUII",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "control",
+			"item": [
+				{
+					"name": "Create Control Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/devices/{{device_sn}}/jobs/return_home",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"devices",
+								"{{device_sn}}",
+								"jobs",
+								"return_home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Web Drc Connect",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"xxx\",\r\n    \"expire_sec\": 1800\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/workspaces/{{workspace_id}}/drc/connect",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"drc",
+								"connect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enter Drc Mode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"\",\r\n    \"dock_sn\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/workspaces/{{workspace_id}}/drc/enter",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"drc",
+								"enter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Drc Mode Exit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": \"\",\r\n    \"dock_sn\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/workspaces/{{workspace_id}}/drc/exit",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								"drc",
+								"exit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fly to Point",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"max_speed\": 15,\r\n    \"points\":[\r\n        {\r\n            \"latitude\": 22.5818,\r\n            \"longitude\": 113.9394,\r\n            \"height\": 20\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/devices/{{device_sn}}/jobs/fly-to-point",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"devices",
+								"{{device_sn}}",
+								"jobs",
+								"fly-to-point"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop Flying to Point",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/devices/{{device_sn}}/jobs/fly-to-point",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"devices",
+								"{{device_sn}}",
+								"jobs",
+								"fly-to-point"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Take off to Point",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"target_latitude\": 22.579,\r\n    \"target_longitude\": 113.9392,\r\n    \"target_height\": 20,\r\n    \"security_takeoff_height\": 20,\r\n    \"rth_altitude\": 20,\r\n    \"rc_lost_action\": 0,\r\n    \"exit_wayline_when_rc_lost\": 0,\r\n    \"max_speed\": 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/devices/{{device_sn}}/jobs/takeoff-to-point",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"devices",
+								"{{device_sn}}",
+								"jobs",
+								"takeoff-to-point"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payload Commands",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cmd\":\"camera_mode_switch\",\r\n    \"data\":{\r\n        \"payload_index\":\"53-0-0\",\r\n        \"camera_mode\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/devices/{{device_sn}}/payload/commands",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"devices",
+								"{{device_sn}}",
+								"payload",
+								"commands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Flight Authority Grab",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/devices/{{device_sn}}/authority/flight",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"devices",
+								"{{device_sn}}",
+								"authority",
+								"flight"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payload Authority Grab",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payload_index\":\"53-0-0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{control_version}}/devices/{{device_sn}}/authority/payload",
+							"host": [
+								"{{base_url}}{{control_version}}"
+							],
+							"path": [
+								"devices",
+								"{{device_sn}}",
+								"authority",
+								"payload"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ3b3Jrc3BhY2VfaWQiOiJlM2RlYTBmNS0zN2YyLTRkNzktYWU1OC00OTBhZjMyMjgwNjkiLCJzdWIiOiJDbG91ZEFwaVNhbXBsZSIsInVzZXJfdHlwZSI6IjEiLCJuYmYiOjE2ODIyMzI5MDYsImxvZyI6IkxvZ2dlcltjb20uZGppLnNhbXBsZS5jb21tb24ubW9kZWwuQ3VzdG9tQ2xhaW1dIiwiaXNzIjoiREpJIiwiaWQiOiJhMTU1OWU3Yy04ZGQ4LTQ3ODAtYjk1Mi0xMDBjYzQ3OTdkYTIiLCJleHAiOjE3Njg2MzI5MDYsImlhdCI6MTY4MjIzMjkwNiwidXNlcm5hbWUiOiJhZG1pblBDIn0.ilO-3PcvWAX9r8z3AR4VAw3kVhavYjiTx_187ACBc1M",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ3b3Jrc3BhY2VfaWQiOiJlM2RlYTBmNS0zN2YyLTRkNzktYWU1OC00OTBhZjMyMjgwNjkiLCJzdWIiOiJDbG91ZEFwaVNhbXBsZSIsInVzZXJfdHlwZSI6IjEiLCJuYmYiOjE2NjMyMjM1MTAsImxvZyI6IkxvZ2dlcltjb20uZGppLnNhbXBsZS5jb21tb24ubW9kZWwuQ3VzdG9tQ2xhaW1dIiwiaXNzIjoiREpJIiwiaWQiOiJhMTU1OWU3Yy04ZGQ4LTQ3ODAtYjk1Mi0xMDBjYzQ3OTdkYTIiLCJleHAiOjE2NjMzMDk5MTAsImlhdCI6MTY2MzIyMzUxMCwidXNlcm5hbWUiOiJhZG1pblBDIn0.6gzNuuX2f0YBoddoD61NFnwABQ_X4LFtQhEaLWSmTW8",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "X-Auth-Token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "workspace_id",
+			"value": "workspace_id"
+		}
+	]
+}
