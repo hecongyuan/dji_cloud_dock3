@@ -710,7 +710,7 @@ DJI、DJI Dock 3、Matrice 3D/3TD 等为 DJI 公司的注册商标。本项目�
 
 <div align="center">
   <img src="wx.JPG" alt="微信二维码" width="200"/>
-  <p>扫码添加微信</p>
+  <p><strong>扫码加作者进入社群，备注：dji_cloud_dock3</strong></p>
 </div>
 
 ### 商用版本

@@ -8,7 +8,7 @@
 
 <div align="center">
   <img src="wx.JPG" alt="微信二维码" width="300"/>
-  <p><strong>扫码添加微信</strong></p>
+  <p><strong>扫码加作者进入社群，备注：dji_cloud_dock3</strong></p>
 </div>
 
 ### 交流内容
