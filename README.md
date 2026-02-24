@@ -688,6 +688,7 @@ com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failur
 
 - **GitHub 仓库**: https://github.com/hecongyuan/dji_cloud_dock3
 - **Gitee 仓库**: https://gitee.com/hecongyuan/dji_cloud_dock3
+- **开源大疆航线程序**: https://github.com/hecongyuan/dji_way_line
 - **DJI 开发者平台**: https://developer.dji.com
 - **Cloud API 文档**: https://developer.dji.com/doc/cloud-api-tutorial/cn/
 - **DJI 技术支持**: https://sdk-forum.dji.net/
