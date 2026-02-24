@@ -1,0 +1,25 @@
+services:
+  nginx:
+    image: dji/nginx:latest
+    networks:
+      - cloud_service_bridge
+    ports:
+      - "8080:8080"
+      - "14443:14443"
+  cloud_api_sample:
+    image: dji/cloud_api_sample:latest
+    ports:
+      - "6789:6789"
+    networks:
+      cloud_service_bridge:
+        ipv4_address: 192.168.6.3
+
+networks:
+  cloud_service_bridge:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.6.0/24
+
+
+
