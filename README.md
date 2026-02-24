@@ -159,11 +159,13 @@
 ### 1. 克隆项目
 
 ```bash
-git clone <your-repository-url>
-cd Cloud-API-Demo
-```
+# 从 GitHub 克隆
+git clone https://github.com/hecongyuan/dji_cloud_dock3.git
 
-> 💡 **提示**: 请将 `<your-repository-url>` 替换为实际的仓库地址
+# 或者从 Gitee 克隆 (国内访问速度更快)
+git clone https://gitee.com/hecongyuan/dji_cloud_dock3.git
+
+cd dji_cloud_dock3
 
 ### 2. 初始化数据库
 
@@ -676,6 +678,8 @@ com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failur
 
 ## 🔗 相关链接
 
+- **GitHub 仓库**: https://github.com/hecongyuan/dji_cloud_dock3
+- **Gitee 仓库**: https://gitee.com/hecongyuan/dji_cloud_dock3
 - **DJI 开发者平台**: https://developer.dji.com
 - **Cloud API 文档**: https://developer.dji.com/doc/cloud-api-tutorial/cn/
 - **DJI 技术支持**: https://sdk-forum.dji.net/
