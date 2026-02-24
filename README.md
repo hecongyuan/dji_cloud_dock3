@@ -8,6 +8,7 @@
 [![DJI Dock 3](https://img.shields.io/badge/DJI%20Dock%203-Supported-blue.svg)]()
 
 🔗 **代码仓库**: [GitHub](https://github.com/hecongyuan/dji_cloud_dock3) | [Gitee (国内访问速度更快)](https://gitee.com/hecongyuan/dji_cloud_dock3)
+🔗 **开源大疆航线程序**: [GitHub](https://github.com/hecongyuan/dji_way_line)
 
 > ⚠️ **重要说明**: 
 > - 这是一个**第三方开发**的 DJI Cloud API 适配项目，**非 DJI 官方项目**
