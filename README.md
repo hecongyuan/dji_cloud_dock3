@@ -7,6 +7,8 @@
 [![Vue](https://img.shields.io/badge/Vue-3.2.26-brightgreen.svg)](https://vuejs.org/)
 [![DJI Dock 3](https://img.shields.io/badge/DJI%20Dock%203-Supported-blue.svg)]()
 
+🔗 **代码仓库**: [GitHub](https://github.com/hecongyuan/dji_cloud_dock3) | [Gitee (国内访问速度更快)](https://gitee.com/hecongyuan/dji_cloud_dock3)
+
 > ⚠️ **重要说明**: 
 > - 这是一个**第三方开发**的 DJI Cloud API 适配项目，**非 DJI 官方项目**
 > - 专门针对 **DJI Dock 3（机场3）** 进行了适配和优化
