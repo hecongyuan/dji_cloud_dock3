@@ -186,7 +186,7 @@ mysql -u root -p
 CREATE DATABASE cloud_sample CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 # 导入初始化脚本
-mysql -u root -p cloud_sample < cloud_sample_init.sql
+mysql -u root -p cloud_sample < source/mysql/init.sql
 ```
 
 ### 3. 配置后端
@@ -196,7 +196,7 @@ mysql -u root -p cloud_sample < cloud_sample_init.sql
 复制配置文件模板：
 
 ```bash
-cd backend/sample/src/main/resources
+cd source/backend_service/sample/src/main/resources
 cp application.yml.example application.yml
 ```
 
@@ -240,7 +240,7 @@ cloud-api:
 ### 4. 启动后端
 
 ```bash
-cd backend
+cd source/backend_service
 mvn clean install
 cd sample
 mvn spring-boot:run
@@ -269,7 +269,7 @@ mvn spring-boot:run
 复制前端配置文件：
 
 ```bash
-cd frontend/src/api/http
+cd source/nginx/front_page/src/api/http
 cp config.ts.example config.ts
 ```
 
@@ -288,7 +288,7 @@ export const CURRENT_CONFIG = {
 安装依赖并启动：
 
 ```bash
-cd frontend
+cd source/nginx/front_page
 npm install
 npm run serve
 ```
@@ -442,40 +442,16 @@ livestream:
 
 ```
 Cloud-API-Demo/
-├── backend/                      # 后端项目
-│   ├── cloud-sdk/               # DJI Cloud SDK
-│   │   └── src/main/java/com/dji/sdk/
-│   │       ├── cloudapi/        # Cloud API 定义
-│   │       ├── mqtt/            # MQTT 通信
-│   │       ├── websocket/       # WebSocket 服务
-│   │       └── config/          # SDK 配置
-│   ├── sample/                  # 示例应用
-│   │   └── src/main/java/com/dji/sample/
-│   │       ├── component/       # 组件（MQTT、Redis、OSS）
-│   │       ├── manage/          # 设备管理
-│   │       ├── wayline/         # 航线任务
-│   │       ├── media/           # 媒体管理
-│   │       ├── control/         # 设备控制
-│   │       ├── map/             # 地图服务
-│   │       └── storage/         # 存储服务
-│   └── pom.xml
-├── frontend/                     # 前端项目
-│   ├── src/
-│   │   ├── api/                 # API 接口
-│   │   ├── components/          # Vue 组件
-│   │   │   ├── devices/         # 设备相关组件
-│   │   │   ├── task/            # 任务相关组件
-│   │   │   ├── flight-area/     # 飞行区域组件
-│   │   │   └── g-map/           # 地图组件
-│   │   ├── pages/               # 页面
-│   │   ├── router/              # 路由配置
-│   │   ├── store/               # 状态管理
-│   │   ├── utils/               # 工具函数
-│   │   ├── mqtt/                # MQTT 客户端
-│   │   └── websocket/           # WebSocket 客户端
-│   ├── package.json
-│   └── vite.config.ts
-├── cloud_sample_init.sql         # 数据库初始化脚本
+├── source/
+│   ├── backend_service/          # 后端项目
+│   │   ├── cloud-sdk/           # DJI Cloud SDK
+│   │   └── sample/              # 示例应用
+│   ├── nginx/front_page/         # 前端项目
+│   │   ├── src/                 # 前端源码
+│   │   ├── package.json
+│   │   └── vite.config.ts
+│   └── mysql/                   # 数据库脚本
+│       └── init.sql             # 初始化 SQL
 ├── LICENSE
 └── README.md
 ```
@@ -576,14 +552,14 @@ on('device_osd', (data) => {
 ### 添加新功能
 
 1. **后端**：
-   - 在 `backend/sample/src/main/java/com/dji/sample/` 下创建新模块
+   - 在 `source/backend_service/sample/src/main/java/com/dji/sample/` 下创建新模块
    - 定义 Controller、Service、DAO
    - 在 `application.yml` 中添加配置
 
 2. **前端**：
-   - 在 `frontend/src/api/` 下添加 API 接口
-   - 在 `frontend/src/components/` 下创建组件
-   - 在 `frontend/src/pages/` 下添加页面
+   - 在 `source/nginx/front_page/src/api/` 下添加 API 接口
+   - 在 `source/nginx/front_page/src/components/` 下创建组件
+   - 在 `source/nginx/front_page/src/pages/` 下添加页面
    - 在 `router` 中配置路由
 
 ## 🐛 常见问题
